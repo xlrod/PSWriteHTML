@@ -20,7 +20,7 @@
 
 # PSWriteHTML - PowerShell Module
 
-`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not really maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is complete rewrite and  doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even same code, therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features.
+`PSWriteHTML` is fork of [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) module. I've forked [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) due to it being outdated and not maintained. I also wanted to address some problems it has and add more features. As it stands `PSWriteHTML` is complete rewrite and  doesn't use same naming convention as [ReportHTML](https://github.com/azurefieldnotes/ReportHTML/) or even same code, therefore you can have both. Keep in mind the approach on building html is much more simplified and I'm adding more and more features.
 
 ## How to install
 
@@ -64,9 +64,24 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 ## Changelog
 
-- 0.0.72 - Unreleased
+- 0.0.76 - 2020.02.07
+  - Added -PreventShowHTML to Out-HtmlView for quick use with Path.
+
+- 0.0.75 - 2020.02.07
+  - Improvment for very long words in New-HTMLTable and New-TableContent using WordBreak parameter - issue [#107](https://github.com/EvotecIT/PSWriteHTML/issues/107)
+
+- 0.0.74 - 2020.01.26
+  - Improvements to speed Targetted DataTable recalc for tabs and sections - pull [#105](https://github.com/EvotecIT/PSWriteHTML/pull/105) / issue [#101](https://github.com/EvotecIT/PSWriteHTML/issues/101) - tnx opustecnica
+
+- 0.0.73 - 2020.01.20
+  - Fix for Out-HtmlView erroring out if Table was not given (or null)
+
+- 0.0.72 - 2020.01.13
   - Removed unused CSS
   - Fix for Out-HtmlView buttons missing PageLength
+  - Added FavIcon to New-HTML [#99](https://github.com/EvotecIT/PSWriteHTML/issues/99) / [#102](https://github.com/EvotecIT/PSWriteHTML/pull/102) - tnx xlrod
+  - Updates to New-TableConditionalFormatting for IE 11 support [#100](https://github.com/EvotecIT/PSWriteHTML/pull/100) - tnx opustecnica
+  - Updates to Search via RegularExpressions [#100](https://github.com/EvotecIT/PSWriteHTML/pull/100) - tnx opustecnica
 
 - 0.0.71 - 2019.12.26
   - Fix for New-HTMLSection -JustifyContent missing in Invisible
@@ -256,7 +271,6 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
   - [x] New-HTMLTableHeader - **new command**
     - [x] Merging header, styling header, adding header row
 
-
 - 0.0.39 - 2019.06.20
   - Fix for DefaultSortColumn
   - Fix for DefaultSortOrder when set to descending
@@ -288,7 +302,7 @@ Dependencies: **PSSharedGoods**, **PSWriteColor** and **Connectimo** are only us
 
 [Matthew Quickenden](https://www.linkedin.com/in/matthewquickenden/) ([@lucidqdreams](https://github.com/lucidqdreams)) - author of  ReportHTML - without him this wouldn't be possible.
 
-## Projects using PSWriteHTML (to give you ideas what you can do):
+## Projects using PSWriteHTML (to give you ideas what you can do)
 
 - [Statusimo](https://github.com/EvotecIT/Statusimo) is a PowerShell module that is able to generate a Status Page entirely from PowerShell.
 - [Dashimo](https://github.com/EvotecIT/Dashimo) is a PowerShell module that makes generating Dashboards, nice looking HTML, a breeze.
@@ -314,43 +328,43 @@ Below you can find some of 3rd party libraries being used.
 
 Following JS Framework is intergrated as part of this module. It's responsible for building Tables
 
-- [x] Downloaded from https://datatables.net/download/
+- [x] Downloaded from <https://datatables.net/download/>
 
 ![DataTables Example](https://evotec.xyz/wp-content/uploads/2019/03/img_5c9fe366e4906.png)
 
 - [x] Styling Framework:
   - [x] DataTables' default styling.v1.10.18
 - [x] Selected Packages:
-  -   [x] jQuery 3 DataTables requires jQuery. Don't select either version if you already have it.v3.3.1
-  -   [x] Enhance HTML tables with advanced interaction controls.v1.10.18
--   [x] Extensions:
-    -   [x] AutoFill Excel-like click and drag copying and filling of data.v2.3.2
-    -   [x] Buttons A common framework for user interaction buttons.v1.5.4
-    -   [x] Column visibility End user buttons to control column visibility.v1.5.4
-    -   [ ] Flash export Create Excel, PDF, CSV files and copy data from the table. For legacy browsers.v1.5.4
-    -   [x] HTML5 export Copy to clipboard and create Excel, PDF and CSV files from the table's data.v1.5.4
-        -   [ ] JSZip Required for the Excel HTML5 export button.v2.5.0
-        -   [ ] pdfmake Required for the PDF HTML5 export button.v0.1.36
-    -   [x] Print view Button that will display a printable view of the table.v1.5.4
-    -   [x] ColReorder Click-and-drag column reordering.v1.5.0
-    -   [x] FixedColumns Fix one or more columns to the left or right of a scrolling table.v3.2.5
-    -   [x] FixedHeader Sticky header and / or footer for the table.v3.1.4
-    -   [x] KeyTable Keyboard navigation of cells in a table, just like a spreadsheet.v2.5.0
-    -   [x] Responsive Dynamically show and hide columns based on the browser size.v2.2.2
-    -   [x] RowGroup Show similar data grouped together by a custom data point.v1.1.0
-    -   [x] RowReorder Click-and-drag reordering of rows.v1.2.4
-    -   [x] Scroller Virtual rendering of a scrolling table for large data sets.v1.5.0
-    -   [x] Select Adds row, column and cell selection abilities to a table.v1.2.6
+  - [x] jQuery 3 DataTables requires jQuery. Don't select either version if you already have it.v3.3.1
+  - [x] Enhance HTML tables with advanced interaction controls.v1.10.18
+- [x] Extensions:
+  - [x] AutoFill Excel-like click and drag copying and filling of data.v2.3.2
+  - [x] Buttons A common framework for user interaction buttons.v1.5.4
+  - [x] Column visibility End user buttons to control column visibility.v1.5.4
+  - [ ] Flash export Create Excel, PDF, CSV files and copy data from the table. For legacy browsers.v1.5.4
+  - [x] HTML5 export Copy to clipboard and create Excel, PDF and CSV files from the table's data.v1.5.4
+    - [ ] JSZip Required for the Excel HTML5 export button.v2.5.0
+    - [ ] pdfmake Required for the PDF HTML5 export button.v0.1.36
+  - [x] Print view Button that will display a printable view of the table.v1.5.4
+  - [x] ColReorder Click-and-drag column reordering.v1.5.0
+  - [x] FixedColumns Fix one or more columns to the left or right of a scrolling table.v3.2.5
+  - [x] FixedHeader Sticky header and / or footer for the table.v3.1.4
+  - [x] KeyTable Keyboard navigation of cells in a table, just like a spreadsheet.v2.5.0
+  - [x] Responsive Dynamically show and hide columns based on the browser size.v2.2.2
+  - [x] RowGroup Show similar data grouped together by a custom data point.v1.1.0
+  - [x] RowReorder Click-and-drag reordering of rows.v1.2.4
+  - [x] Scroller Virtual rendering of a scrolling table for large data sets.v1.5.0
+  - [x] Select Adds row, column and cell selection abilities to a table.v1.2.6
 
 JSZip and PDFMake are not downloaded as part of this package. They fail to import properly hence they are not bundled as one minified version.
 
--   [x] Extensions:
-    -   [x] Downloaded from https://github.com/Stuk/jszip (3.1.5)
-        -   [x] JSZip Required for the Excel HTML5 export button.v2.5.0
-    -   [x] DataTables Package https://datatables.net/download/ but with separate file
-        -   [x] pdfmake Required for the PDF HTML5 export button.v0.1.36
-    -   [x] ChartJS Package - https://github.com/chartjs/Chart.js/releases
-        -   [x] ChartJS - version 2.7.3 (required for charts)
+- [x] Extensions:
+  - [x] Downloaded from <https://github.com/Stuk/jszip> (3.1.5)
+    - [x] JSZip Required for the Excel HTML5 export button.v2.5.0
+  - [x] DataTables Package <https://datatables.net/download/> but with separate file
+    - [x] pdfmake Required for the PDF HTML5 export button.v0.1.36
+  - [x] ChartJS Package - <https://github.com/chartjs/Chart.js/releases>
+    - [x] ChartJS - version 2.7.3 (required for charts)
 
 ### External JS Framework -EnlighterJS (Mozilla Public License Version 2.0 LICENSE)
 
@@ -360,7 +374,7 @@ JSZip and PDFMake are not downloaded as part of this package. They fail to impor
 
 This allows for **code blocks** support. Currently it uses Release Candidate version as it's first version to support **PowerShell highlighting** and many additional languages. It will be updated to new version
 
-- [x] Downloaded from https://github.com/EnlighterJS/EnlighterJS
+- [x] Downloaded from <https://github.com/EnlighterJS/EnlighterJS>
 
 #### Following languages are supported for New-HTMLCodeBlock
 
@@ -422,4 +436,4 @@ This allows for **code blocks** support. Currently it uses Release Candidate ver
 
 ### External JS Framework - VIS Network (MIT LICENSE)
 
-- [x] Downloaded from https://github.com/visjs/vis-network
+- [x] Downloaded from <https://github.com/visjs/vis-network>

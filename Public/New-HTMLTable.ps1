@@ -53,7 +53,9 @@ function New-HTMLTable {
         [alias('CompareWithColors')][switch] $HighlightDifferences,
         [int] $First,
         [int] $Last,
-        [alias('Replace')][Array] $CompareReplace
+        [alias('Replace')][Array] $CompareReplace,
+        [alias('RegularExpression')][switch]$SearchRegularExpression,
+        [ValidateSet('normal', 'break-all', 'keep-all','break-word')][string] $WordBreak = 'normal'
     )
     if (-not $Script:HTMLSchema.Features) {
         Write-Warning 'New-HTMLTable - Creation of HTML aborted. Most likely New-HTML is missing.'
@@ -478,7 +480,7 @@ function New-HTMLTable {
 
         # Enable Custom Date fromat sorting
         $SortingFormatDateTime = Add-CustomFormatForDatetimeSorting -DateTimeSortingFormat $DateTimeSortingFormat
-        $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation -DataTableName $DataTableID
+        $FilteringOutput = Add-TableFiltering -Filtering $Filtering -FilteringLocation $FilteringLocation -DataTableName $DataTableID -SearchRegularExpression:$SearchRegularExpression
         $FilteringTopCode = $FilteringOutput.FilteringTopCode
         $FilteringBottomCode = $FilteringOutput.FilteringBottomCode
         $LoadSavedState = Add-TableState -DataTableName $DataTableID -Filtering $Filtering -FilteringLocation $FilteringLocation -SavedState (-not $DisableStateSave)
@@ -561,12 +563,18 @@ function New-HTMLTable {
     } else {
         $RowGroupingCSS = ''
     }
-
     New-HTMLTag -Tag 'div' -Attributes @{ class = 'flexElement overflowHidden' } -Value {
         $RowGroupingCSS
         $BeforeTableCode
         $BeforeTable
         # Build HTML TABLE
+
+        if ($WordBreak -ne 'normal') {
+            New-HTMLTag -Tag 'style' {
+                ConvertTo-CSS -ClassName 'td' -ID $TableAttributes.id -Attributes @{ 'word-break' = $WordBreak }
+            }
+        }
+
         New-HTMLTag -Tag 'table' -Attributes $TableAttributes {
             New-HTMLTag -Tag 'thead' {
                 if ($AddedHeader) {

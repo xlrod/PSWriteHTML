@@ -5,47 +5,33 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLAnchorLink
+# New-TableReplace
 
 ## SYNOPSIS
-Creates Hyperlink for an Anchor
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-New-HTMLAnchorLink [-AnchorName] <String> [[-AnchorText] <String>] [<CommonParameters>]
+New-TableReplace [[-FieldName] <String>] [[-Replacements] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Long description
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
-Get-HTMLAnchorLink -AnchorName 'test'
-```
+
+{{ Add example description here }}
 
 ## PARAMETERS
 
-### -AnchorName
-The Actual name of the Anchor (Hidden)
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AnchorText
-The HyperLink text. 
-Will default to $AnchorNname if not specified
+### -FieldName
+{{ Fill FieldName Description }}
 
 ```yaml
 Type: String
@@ -53,7 +39,22 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Replacements
+{{ Fill Replacements Description }}
+
+```yaml
+Type: String[]
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -64,9 +65,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
-General notes
 
 ## RELATED LINKS

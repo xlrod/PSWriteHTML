@@ -5,39 +5,41 @@ online version:
 schema: 2.0.0
 ---
 
-# New-HTMLAnchorName
+# New-HTMLFooter
 
 ## SYNOPSIS
-Creates an anchor
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-New-HTMLAnchorName [-AnchorName] <String> [<CommonParameters>]
+New-HTMLFooter [[-HTMLContent] <ScriptBlock>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Long description
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
-An example
-```
+
+{{ Add example description here }}
 
 ## PARAMETERS
 
-### -AnchorName
-Parameter description
+### -HTMLContent
+{{ Fill HTMLContent Description }}
 
 ```yaml
-Type: String
+Type: ScriptBlock
 Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 1
+Required: False
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -48,9 +50,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
-General notes
 
 ## RELATED LINKS
